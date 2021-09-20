@@ -79,7 +79,7 @@ pipeline {
                helm repo update
                PACKAGE=nexusrepos/sample-chart
                helm repo update
-               helm install samplesreleases -f values.yaml ${PACKAGE}
+               helm install samples-releases -f values.yaml ${PACKAGE}
                 '''
             }
         }
