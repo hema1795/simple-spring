@@ -8,7 +8,7 @@ image:
   repository: jokersquotes.com/simple-spring
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "182"
+  tag: "188"
 
 imagePullSecrets: []
 nameOverride: ""
