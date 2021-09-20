@@ -21,7 +21,7 @@ spec:
         {{- include "sample-chart.selectorLabels" . | nindent 8 }}
     spec:
       imagePullSecrets:
-      - name: regcred
+      - name: regcreds
       serviceAccountName: {{ include "sample-chart.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
