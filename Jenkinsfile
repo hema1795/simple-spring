@@ -29,7 +29,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-           dockerImage = docker.build ("simple-spring:${env.BUILD_ID}")
+           dockerImage = docker.build imageName
         }
       }
     }
@@ -40,7 +40,7 @@ pipeline {
              docker.withRegistry( 'http://'+registry, registryCredentials )
           {
              dockerImage.push('latest')
-             dockerImage.push("${env.BUILD_ID}")
+             //dockerImage.push("${env.BUILD_ID}")
           }
         }
       }
