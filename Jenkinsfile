@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registryCredential = "17hema"
+    //registryCredential = "17hema"
     PROJECT_ID = 'handy-hexagon-318203'
     CLUSTER_NAME = 'jenkins'
     LOCATION = 'us-central1-c'
