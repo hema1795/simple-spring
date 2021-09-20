@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: simple-spring
+  repository: jokersquotes.com/simple-spring
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
