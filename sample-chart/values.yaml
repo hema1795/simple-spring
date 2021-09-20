@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: jokersquotes.com/simple-spring
   pullPolicy: Always
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
