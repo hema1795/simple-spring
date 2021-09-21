@@ -29,9 +29,11 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-            docker.withRegistory ('http://'+registry, registryCredentials)
           {
             dockerImage = docker.build("handy-hexagon-318203/snapshot")
+            sh '''
+            docker login https://jokersquotes.com/repository/docker-registry/ --username docker --password docker
+            '''
           }
       }
     }
