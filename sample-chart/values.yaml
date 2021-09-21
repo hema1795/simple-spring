@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: jokersquotes.com/simple-spring
+  repository: gcr.io/handy-hexagon-318203/snapshot
   pullPolicy: Always
   tag: "latest"
 
