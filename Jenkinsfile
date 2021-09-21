@@ -33,7 +33,15 @@ pipeline {
       }
     }
     } 
-     stage('Push image') {
+    
+    stage('publish the image')
+    {
+      script {
+             docker.withRegistry( 'http://'+registry, registryCredentials )
+      }
+    }
+    
+     stage('Push image to gcr') {
       steps{
         script {
              docker.withRegistry( 'https://gcr.io', 'gcr:handy-hexagon-318203' )
