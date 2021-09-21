@@ -30,7 +30,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-           dockerImage = docker.build("[handy-hexagon-318203]/[registryCredentials]")
+           dockerImage = docker.build("[handy-hexagon-318203]/[snapshort]")
         }
       }
     }
