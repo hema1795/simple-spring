@@ -29,7 +29,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-           dockerImage = docker.build ("simple-spring:${env.BUILD_ID}")
+            dockerImage = docker.build("PROJECT_ID/snapshot")
       }
     }
     } 
