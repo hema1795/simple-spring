@@ -9,6 +9,7 @@ pipeline {
     registryCredentials = "nexus-artifactory"
     registry = "jokersquotes.com"
     dockerImage = ''
+    credentials-id = "My First Project"
   }
   agent any
   stages {
@@ -37,7 +38,7 @@ pipeline {
      stage('Push image') {
       steps{
         script {
-             docker.withRegistry( 'http://'+registry, registryCredentials )
+             docker.withRegistry( 'https://gcr.io', 'gcr:[credentials-id]' )
           {
              dockerImage.push('latest')
              dockerImage.push("${env.BUILD_ID}")
