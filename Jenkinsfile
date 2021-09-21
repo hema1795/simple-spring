@@ -29,7 +29,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-            docker login https://jokersquotes.com/repository/docker-registry/ --username docker --password docker
+            docker login 'https://jokersquotes.com/repository/docker-registry/ --username docker --password docker'
             dockerImage = docker.build ("handy-hexagon-318203/snapshot")
             
          
