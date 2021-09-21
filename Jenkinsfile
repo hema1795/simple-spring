@@ -36,10 +36,10 @@ pipeline {
      stage('Push image') {
       steps{
         script {
-             docker.withRegistry( 'https://gcr.io', 'CREDENTIALS_ID' )
+             docker.withRegistry( 'https://gcr.io', 'gcr:handy-hexagon-318203' )
           {
+             dockerImage.push("${env.BUILD_NUMBER}")
              dockerImage.push('latest')
-             dockerImage.push("${env.BUILD_ID}")
           }
         }
       }
