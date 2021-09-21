@@ -29,7 +29,8 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-            docker login 'https://jokersquotes.com/repository/docker-registry/ --username docker --password docker'
+            docker.withRegistry('http://'+registry, registryCredentials) {
+            git url:'https://github.com/hema1795/simple-spring.git', branch:'master'
             dockerImage = docker.build ("handy-hexagon-318203/snapshot")
             
          
