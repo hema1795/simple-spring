@@ -32,8 +32,7 @@ pipeline {
             docker.withRegistry('http://'+registry, registryCredentials) {
             git url:'https://github.com/hema1795/simple-spring.git', branch:'master'
             dockerImage = docker.build ("handy-hexagon-318203/snapshot")
-            
-         
+            }
       }
     }
     } 
