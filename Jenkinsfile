@@ -29,7 +29,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-            dockerImage = docker.build("PROJECT_ID/snapshot")
+            dockerImage = docker.build("handy-hexagon-318203/snapshot")
       }
     }
     } 
