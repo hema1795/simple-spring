@@ -5,9 +5,9 @@ pipeline {
     CLUSTER_NAME = 'jenkins'
     LOCATION = 'us-central1-c'
     CREDENTIALS_ID = 'handy-hexagon-318203'
-    //imageName = "springapp"
-    //registryCredentials = "nexus-artifactory"
-    //registry = "jokersquotes.com"
+    imageName = "springapp"
+    registryCredentials = "nexus-artifactory"
+    registry = "jokersquotes.com"
     dockerImage = ''
     credentials-id = "My First Project"
   }
@@ -30,7 +30,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-           dockerImage = docker.build ("simple-spring:${env.BUILD_ID}")
+           dockerImage = docker.build("[handy-hexagon-318203]/[registryCredentials]")
         }
       }
     }
