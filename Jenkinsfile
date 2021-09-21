@@ -32,7 +32,7 @@ pipeline {
            dockerImage = docker.build ("simple-spring:${env.BUILD_ID}")
       }
     }
-    
+    } 
      stage('Push image') {
       steps{
         script {
