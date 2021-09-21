@@ -9,7 +9,6 @@ pipeline {
     registryCredentials = "nexus-artifactory"
     registry = "jokersquotes.com"
     dockerImage = ''
-    credentials-id = "My First Project"
   }
   agent any
   stages {
@@ -30,15 +29,14 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-           dockerImage = docker.build("[handy-hexagon-318203]/[snapshort]")
-        }
+           dockerImage = docker.build ("simple-spring:${env.BUILD_ID}")
       }
     }
     
      stage('Push image') {
       steps{
         script {
-             docker.withRegistry( 'https://gcr.io', 'gcr:handy-hexagon-318203' )
+             docker.withRegistry( 'https://gcr.io', 'CREDENTIALS_ID' )
           {
              dockerImage.push('latest')
              dockerImage.push("${env.BUILD_ID}")
