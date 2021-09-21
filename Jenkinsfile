@@ -30,7 +30,7 @@ pipeline {
       steps{
         script {
             sh '''
-            dockerImage = docker.build("handy-hexagon-318203/snapshot")
+            dockerImage = docker.build "handy-hexagon-318203/snapshot"
             docker login https://jokersquotes.com/repository/docker-registry/ --username docker --password docker
             '''
          
