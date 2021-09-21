@@ -30,16 +30,11 @@ pipeline {
       steps{
         script {
             dockerImage = docker.build("handy-hexagon-318203/snapshot")
+            docker.withRegistry( 'http://'+registry, registryCredentials )
       }
     }
     } 
-    
-    stage('publish the image')
-    {
-      script {
-             docker.withRegistry( 'http://'+registry, registryCredentials )
-      }
-    }
+   
     
      stage('Push image to gcr') {
       steps{
