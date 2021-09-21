@@ -6,8 +6,8 @@ pipeline {
     LOCATION = 'us-central1-c'
     CREDENTIALS_ID = 'handy-hexagon-318203'
     //imageName = "springapp"
-    registryCredentials = "nexus-artifactory"
-    registry = "jokersquotes.com"
+    //registryCredentials = "nexus-artifactory"
+    //registry = "jokersquotes.com"
     dockerImage = ''
     credentials-id = "My First Project"
   }
