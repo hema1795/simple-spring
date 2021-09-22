@@ -5,10 +5,13 @@ pipeline {
     CLUSTER_NAME = 'jenkins'
     LOCATION = 'us-central1-c'
     CREDENTIALS_ID = 'handy-hexagon-318203'
+    credentialsId= 'key-sa'
     imageName = "springapp"
     registryCredentials = "nexus-artifactory"
     registry = "jokersquotes.com"
     dockerImage = ''
+    
+    
   }
   agent any
   stages {
@@ -71,12 +74,12 @@ pipeline {
             steps{
               git url: 'https://github.com/hema1795/simple-spring.git', branch: 'master'
               script{
+                withCredentials([file(credentialsId: 'key-sa', variable: 'GC_KEY')]) {
               sh '''
                export project=handy-hexagon-318203
-               export key=sample.json
                export zone=us-central1-c
                export cluster=jenkins
-               gcloud auth activate-service-account --project=${project} --key-file=${key}
+               gcloud auth activate-service-account --project=${project} --key-file=${GC_KEY}
                gcloud container clusters get-credentials ${cluster} --zone ${zone} --project ${project}
                PACKAGE=sample-chart
                helm repo add nexusrepos  https://jokersquotes.com/repository/hosted-hosted/ --username admin --password admin
@@ -87,6 +90,7 @@ pipeline {
                helm upgrade --install sample-chart -f values.yaml ${PACKAGE} -n default
                 '''
             }
+          }      
         }
      }
   }
